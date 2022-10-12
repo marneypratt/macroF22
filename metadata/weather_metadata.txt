@@ -1,0 +1,59 @@
+This “weather_metadata” file was most recently updated on 2022-03-09 by Marney Pratt
+
+
+-------------------
+GENERAL INFORMATION
+-------------------
+
+
+1. Title of Dataset 
+
+Weather Data for Amherst, MA 2018-2021
+
+
+2. Author Information
+
+
+  Principal Investigator Contact Information
+        Name: Marney Pratt
+           Institution: Smith College
+           Address: 44 College Ln, Northampton, MA 01063
+           Email: mcpratt@smith.edu
+
+
+season: the sampling season 
+
+  Summer is Apr 15 - Jun 15
+  Fall is Aug 15 - Oct 15
+
+
+
+
+total.precip: total precipitation in millimeters over a 60 day period
+	This value was calculated as the total amount of daily precipitation in mm for the 60 days prior to and including sampling of macroinvertebrates
+
+
+	Daily precipitation in milimeters was downloaded from the 
+	National Oceanographic and Atmospheric Administration (NOAA) Global Historical Climatology Network (GHCN) 
+	https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-ghcn
+      
+      NOAA GHCN weather data were downloaded for Amherst, MA station (ID = USC00190120) with the rnoaa package in R and the meteo_tidy_ghcnd() function           
+      Chamberlain, S (2021). rnoaa: 'NOAA' weather data from R. R package version 1.3.2.     
+          https://CRAN.R-project.org/package=rnoaa)
+
+ADD: aggregated degree days (ADD) for the 60 days prior to sampling and including sampling of macroinvertebrates
+       
+
+      Daily minimum (Tmin) and maximum (Tmax) temperatures in Celcius were downloaded from the 
+	National Oceanographic and Atmospheric Administration (NOAA) Global Historical Climatology Network (GHCN) 
+	https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-ghcn
+      
+      NOAA GHCN weather data were downloaded for Amherst, MA station (ID = USC00190120) with the rnoaa package in R and the meteo_tidy_ghcnd() function           
+      Chamberlain, S (2021). rnoaa: 'NOAA' weather data from R. R package version 1.3.2.     
+          https://CRAN.R-project.org/package=rnoaa)
+          
+      To calculate ADD, the Tmin and Tmax were averaged to give an estimate of average daily temperature (Tavg).  
+	Then the Tavg was summed for 60 days prior to and including the sampling date 
+
+
+
