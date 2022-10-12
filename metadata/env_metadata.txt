@@ -1,4 +1,4 @@
-This “env_metadata” file was most recently updated on 2022-02-28 by Marney Pratt
+This “env_metadata” file was most recently updated on 2022-10-12 by Marney Pratt
 
 
 -------------------
@@ -8,7 +8,7 @@ GENERAL INFORMATION
 
 1. Title of Dataset 
 
-Mill River Water Quality and Weather Data for 2018-2021
+Mill River Water Quality and Weather Data for 2018-2022
 
 
 2. Author Information
@@ -24,7 +24,7 @@ Mill River Water Quality and Weather Data for 2018-2021
 
 3. Date of data collection (single date, range, approximate date) <dates in format YYYY-MM>
 
-2018-05 to 2021-10
+2018-05 to 2022-06
 
 
 4. Geographic location of data collection (where was data collected?): 
@@ -53,11 +53,11 @@ No restrictions other than proper citation/attribution
 
 2. Recommended citation for this metadata text file:
 
-Pratt, MC.  2021.  Mill River enironmental data metadata for 2018-2021.  Smith College, Northampton, MA.
+Pratt, MC.  2022.  Mill River enironmental data metadata for 2018-2022.  Smith College, Northampton, MA.
 
 3. Recommended citation for the data:
 
-Pratt, MC.  2021.  Mill River enironmental data for 2018-2021.  Smith College, Northampton, MA.
+Pratt, MC.  2022.  Mill River enironmental data for 2018-2022.  Smith College, Northampton, MA.
 
 
 
@@ -92,10 +92,10 @@ Larger rocks were picked up and any organisms found on the rocks were picked off
 Once all larger rocks were cleaned off and placed outside of the quadrat, the substratum was disturbed by shuffling and kicking an investigator's boots on the 
 bottom of the river for 30 seconds to 1 minute making sure that the D-net caught anything disturbed by the kicking. 
 The contents of the net were rinsed into the tub of water.  
-This process was repeated 8-11 times per site, and all samples from a site were either joined into one composite sample (Fall 2018) or kept separate by microhabitat (Summer 2018, Fall & Summer 2019).  
+This process was repeated 8-11 times per site, and all samples from a site were either joined into one composite sample (Fall 2018) or kept separate by microhabitat.  
 
 
-In each location (upstream and downstream of Paradise Pond) we sampled 5 microhabitats.  We usually sampled 2 quadrats in each microhabitat for a total of 10 quadrats sampled in a location on a particular day.  
+In each location (upstream and downstream of Paradise Pond) we sampled 5 microhabitats.  We usually sampled 1-2 quadrats in each microhabitat in a location on a particular day.  
 
 Water quality measures were not taken during all sampling days because of time or weather constraints. More information on methods is given below for each variable.
 
@@ -105,7 +105,7 @@ After collecting in the field, samples were taken back to the lab and sorted int
 levels for some difficult to identify organisms such as worms and midges in the fall sampling times).
 
 Note that because of heavy rains in Fall 2018, sampling was very difficult.  The 3rd downstream sample did not sample the sponge microhabitat (DSP) so there were only 8 quadrats taken for that sample, while 11 quadrats were taken in the 3rd upstream sample.
-
+An upstream sample date was also cancelled in Fall 2021 because of heavy rains and dangerous conditions.
 
 
 2. Describe any quality-assurance procedures performed on the data:
@@ -115,7 +115,8 @@ Whenever possible, identifications were checked by Marney Pratt to ensure consis
 
 Investigators included:
 Marney Pratt
-Smith College Bio 131 students
+Denise Lello
+Smith College students and other volunteers
 
 
 
@@ -165,8 +166,6 @@ sampleID: unique identification code for each sample.
 sampleID.prefix: unique identification code for each sample day. Makes the sampleID when microhabitat is added.
 
 
-labelColor: label color used on vials for a particular sample day
-
 microhabitat: there were 5 microhabitats sampled within each location (upstream or downstream) as follows
 	DSR - Downstream slow rocky (on the far side of the river (closer to the athletic fields), just downstream of some larger rocks where the flow is 
 	slower and there are some large rocks)
@@ -200,7 +199,7 @@ per_rock: the percent of the quadrat that was covered in rocks (small to large r
 per_organic: the percent of the quadrat that was covered in visible organic matter such as leaves and sticks 
 
 
-startTime.UTC: the time in hours:minutes:seconds in the Universal Time Coordinated (UTC) time zone that sampling was started
+dateTime.UTC: the time in date and time in year-month-day hours:minutes:seconds in the Universal Time Coordinated (UTC) time zone that sampling was started
 
 lat: Latitude coordinate as measured by Vernier's LabQuest 2 (uses WGS84, accruacy: half of data points fall within a radius of 2m)
 	https://www.vernier.com/products/interfaces/labq2/
@@ -208,8 +207,6 @@ lat: Latitude coordinate as measured by Vernier's LabQuest 2 (uses WGS84, accrua
 long: Longitude coordinate as measured by Vernier's LabQuest 2 (uses WGS84, accruacy: half of data points fall within a radius of 2m)
 	https://www.vernier.com/products/interfaces/labq2/
 
-alt: Altitude in meters as measured by Vernier's LabQuest 2 (uses WGS84, accruacy: half of data points fall within a radius of 2m)
-	https://www.vernier.com/products/interfaces/labq2/
 
 pH: the pH 
 	pH was measured using an Oakton pH Testr 50 Waterproof Pocket pH Tester (accuracy: ±0.01 pH)
@@ -283,4 +280,52 @@ cond: Conductivity was measured in µS/cm by the Vernier Conductivity Probe (acc
 
 
 
+nitrate: the concentration of Nitrate (NO3–) in mg/L (=ppm) in the water as measured by the Vernier Nitrate Ion-Selective Electrode (accurate to ±10% of full scale (calibrated 1 to 100 mg/L)). https://www.vernier.com/product/nitrate-ion-selective-electrode/
 
+  The Nitrate Ion-Selective Electrode was calibrate with a low (1 mg/L) and high (100 mg/L) Nitrate standard that were each purchased from Vernier (catalog codes NO3-LST and NO3_HST respectively).
+
+
+
+alkalinity: the total alkalinity of a water sample in ppm of CaCO3
+
+  In Summer 2022, alkalinity was measured using the Alkalinity Test Kit- Titrator from Lamotte (Order Code  4491-DR-01, https://lamotte.com/products/aquarium-and-fish-farming/individual-test-kits/alkalinity-test-kit-titrator-4491-dr-01). This kit required watching for a color change while adding 4 ppm increments of the reagent. To convert the results to degrees of carbonate hardness (dKH): ppm CaCO3 x 0.056 = dKH CaCO3
+  
+  Starting in Fall 2022, alkalinity was measured using the Hanna Instruments Freshwater Alkalinity Checker (order code: HI775, https://www.hannainst.com/hi775-alkalinity-freshwater.html). This colorimeter has a resolution of 1 ppm and and accuracy of ±5 ppm or ±5% of reading. The instrument displays the alkalinity concentration in ppm of CaCO3. Alkalinity conversion: 1 ppm CaCO3 = 0.02 meq/L = 0.056 dkH
+
+mon.precip: monthly total precipitation in millimeters over a 30 day period before the sampling date
+	This value was calculated as the total amount of daily precipitation in mm for the 30 days prior to and including sampling of macroinvertebrates
+
+
+	Daily precipitation in milimeters was downloaded from the 
+	National Oceanographic and Atmospheric Administration (NOAA) Global Historical Climatology Network (GHCN) 
+	https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-ghcn
+      
+      NOAA GHCN weather data were downloaded for Amherst, MA station (ID = USC00190120) with the rnoaa package in R and the meteo_tidy_ghcnd() function           
+      Chamberlain, S (2021). rnoaa: 'NOAA' weather data from R. R package version 1.3.2.     
+          https://CRAN.R-project.org/package=rnoaa)
+          
+bi.precip: biweekly total precipitation in millimeters over a 14 day period before the sampling date
+	This value was calculated as the total amount of daily precipitation in mm for the 14 days prior to and including sampling of macroinvertebrates
+
+
+	Daily precipitation in milimeters was downloaded from the 
+	National Oceanographic and Atmospheric Administration (NOAA) Global Historical Climatology Network (GHCN) 
+	https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-ghcn
+      
+      NOAA GHCN weather data were downloaded for Amherst, MA station (ID = USC00190120) with the rnoaa package in R and the meteo_tidy_ghcnd() function           
+      Chamberlain, S (2021). rnoaa: 'NOAA' weather data from R. R package version 1.3.2.     
+          https://CRAN.R-project.org/package=rnoaa)
+
+mon.ADD: monthly aggregated degree days (ADD) for the 30 days prior to sampling of macroinvertebrates
+       
+
+      Daily minimum (Tmin) and maximum (Tmax) temperatures in Celcius were downloaded from the 
+	National Oceanographic and Atmospheric Administration (NOAA) Global Historical Climatology Network (GHCN) 
+	https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-ghcn
+      
+      NOAA GHCN weather data were downloaded for Amherst, MA station (ID = USC00190120) with the rnoaa package in R and the meteo_tidy_ghcnd() function           
+      Chamberlain, S (2021). rnoaa: 'NOAA' weather data from R. R package version 1.3.2.     
+          https://CRAN.R-project.org/package=rnoaa)
+          
+      To calculate ADD, the Tmin and Tmax were averaged to give an estimate of average daily temperature (Tavg).  
+	Then the Tavg was summed for 30 days prior to and including the sampling date 

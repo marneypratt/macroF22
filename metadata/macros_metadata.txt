@@ -1,4 +1,4 @@
-This “macro_metadata” file was most recently updated on 2022-02-28 by Marney Pratt
+This “macro_metadata” file was most recently updated on 2022-09-28 by Marney Pratt
 
 
 -------------------
@@ -24,7 +24,7 @@ Mill River Macroinvertebrate Data for 2018-2021
 
 3. Date of data collection (single date, range, approximate date) <dates in format YYYY-MM>
 
-2018-05 to 2021-10
+2018-05 to 2022-06
 
 
 4. Geographic location of data collection (where was data collected?): 
@@ -53,11 +53,11 @@ No restrictions other than proper citation/attribution
 
 2. Recommended citation for this metadata text file:
 
-Pratt, MC.  2021.  Mill River macroinvertebrate data metadata for 2018-2021.  Smith College, Northampton, MA.
+Pratt, MC.  2022.  Mill River macroinvertebrate data metadata for 2018-2022.  Smith College, Northampton, MA.
 
 3. Recommended citation for the data:
 
-Pratt, MC.  2021.  Mill River macroinvertebrate data for 2018-2021.  Smith College, Northampton, MA.
+Pratt, MC.  2022.  Mill River macroinvertebrate data for 2018-2022.  Smith College, Northampton, MA.
 
 
 
@@ -71,7 +71,7 @@ DATA & FILE OVERVIEW
       Short description:        
 
 Each row shows the data from one type of organism found from a site on the same day.  The data contains all the organisms found for the 
-2018-2020 sampling for the upstream and downstream riffles in the Mill River.  
+2018-2022 sampling for the upstream and downstream riffles in the Mill River.  
 The worms and midges were identified down to the lowest level possible in only some summers. 
 
 
@@ -99,7 +99,7 @@ This process was repeated in each of the 5 microhbaitat in each site.
 All samples from a site on the same date were either joined into one composite sample (Fall 2018) or kept separate by microhabitat (all other dates). 
 
 
-In each location (upstream and downstream of Paradise Pond) we sampled 5 microhabitats.  We usually sampled 1-2 quadrats in each microhabitat for a total of 5-10 quadrats sampled in a location on a particular day.  
+In each location (upstream and downstream of Paradise Pond) we sampled 5 microhabitats.  We usually sampled 1-2 quadrats in each microhabitat in a location on a particular day.  
 Each location was sampled 2-3 different days in each season and year.
 
  
@@ -122,7 +122,7 @@ Investigators included:
 Marney Pratt
 Denise Lello
 Julie Dubriel
-Smith College Bio 131 students
+Smith College students and various volunteers
 
 
 
@@ -210,4 +210,4 @@ benthicArea: benthic area in meters squared. Calculated as the area of a 0.25 me
 invDens: invertebrate density in number per meter squared. Calculated as the number of a particular organism divided by the benthic area that the organism was sampled in.
 
 
-see the "master.taxa_metadata.txt" file for the additional variables on taxonomy, tolerance, and FFG if they are present
+see the "master.taxa_metadata.txt" file for the additional variables on taxonomy, tolerance, and FFG
