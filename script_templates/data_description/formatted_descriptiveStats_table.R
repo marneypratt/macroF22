@@ -4,8 +4,6 @@
 #make sure the 'flextable' and `tidyverse` packages are installed and loaded
 #make sure your data are imported
 
-library(flextable)
-
 #set the variable you want to summarize
 x.var <- "___" #put the name of the column you want to summarize in the blank here
 
@@ -29,10 +27,13 @@ ft <- bold(ft, part="header")
 
 #center columns
 ft <- align(ft, align = "center", part = "all" )
-ft
+
+#to print table, remove the # in front of ft
+#comment out or delete the line below before you render a quarto document
+#ft
 
 #send to MS Word if desired
-#comment out or delete the line below before you knit an R Markdown document
-print(ft, preview = "docx") # can change this to "html" or "pptx"
+#comment out or delete the line below before you render a quarto document
+#print(ft, preview = "docx") # can change this to "html" or "pptx"
 
 #see https://davidgohel.github.io/flextable/ for more information and formatting options
