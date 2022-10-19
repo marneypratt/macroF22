@@ -45,7 +45,86 @@ Find the code you need to prepare or "wrangle" your data to make any calculation
 
 # Data Description
 
-Find the code you need to describe your data by looking in the "descriptive_stats" folder within the "script_templates" folder. Copy and paste the code you need in the chunk below.
+Make a formatted table of the data that you used in your analysis to include in the Data Analysis Methods section of your paper. Make sure to remove variables you don't need (if you are only looking at one season, you can remove season from this table)
+
+```{r table of data used}
+
+#To get a formatted table, make sure that the {flextable} package is loaded
+#If you want to format the table yourself, then erase the code from 
+#where it says "#create the formatted table" on
+
+table.sum <- ___ %>%  #put the name of your wrangled data here
+  
+  #summarize by date, year, season, location (to get number of microhabs sampled per date)
+  group_by(date, year, season, location) %>% 
+    summarize(
+      area = sum(benthicArea),
+      mon.ADD = mean(mon.ADD, na.rm=TRUE),
+      mon.precip = mean(mon.precip, na.rm=TRUE),
+      samples = n()
+    ) %>% 
+  
+  #change date to month/day
+  mutate(date = format(as.Date(date), '%m/%d')) %>% 
+
+
+  #summarize by year, season, location 
+  group_by(year, season, location) %>% 
+    summarize(
+      dates = str_c(date, collapse = ", "),
+      samples = sum(samples),
+      area = sum(area),
+      mon.ADD = round(mean(mon.ADD, na.rm=TRUE), digits=0),
+      mon.precip = round(mean(mon.precip, na.rm=TRUE), digits=0)
+    )  
+  
+
+#create the formatted table
+ft <- flextable(table.sum)
+
+#create header labels
+ft <- set_header_labels(ft,
+                        year = "Year",
+                        season = "Season",
+                        location = "Location",
+                        dates = "Dates",
+                        samples = "# of Samples",
+                        area = "Total Area Sampled (m^2)",
+                        mon.ADD = "Monthly ADD",
+                        mon.precip = "Monthly Precipitation (mm)"
+                        )
+
+
+#bold the headings
+ft <- bold(ft, part="header")
+
+ft <- merge_v(ft, j = ~ year + season)
+
+#set table properties
+ft <- set_table_properties(ft, layout = "autofit", width = 1)
+
+#center columns
+ft <- align(ft, align = "center", part = "all" )
+
+
+#add lines between year x season
+ft <- theme_vanilla(ft) %>% 
+  fontsize(size = 10)
+
+ft <- fix_border_issues(ft)
+
+#print table
+ft
+
+#send to MS Word if desired
+#comment out or delete the line below before you render a quarto document
+#print(ft, preview = "docx") # can change this to "html" or "pptx"
+
+#see https://davidgohel.github.io/flextable/ for more information and formatting options
+
+```
+
+Use the template code below to calculate the descriptive statistics for your variable of interest. The output of this code should not all be reported in your paper. Decide which (if any) of the descriptive statistics you should report and make sure to round the values. Descriptive statistics can be reported in the text of the results (see this [example results section](https://docs.google.com/document/d/1vwyOSmhZzTuIfAEbpeiv3yCsU1UMZDsTXgnbE80nPTU/edit?usp=sharing)) if relatively simple, or you can make a formatted table of just the necessary, rounded values to include in your paper (in which case you might want to use "formatted_descriptiveStats_table.R" in the "data_description" script templates to help you make a formatted table).
 
 ```{r descriptive stats}
 
@@ -117,7 +196,7 @@ sessionInfo()
 
 The above is the information you need to cite which version of R as well as any packages you used. While the version number is necessary, you also need more information to cite R and the packages. Refer to [How to Cite R in your Methods](https://docs.google.com/presentation/d/1RG4_R-MDOy1vbMz-M1gfOcMtgqWu9Kvv_R4ex5QdcVk/edit?usp=sharing) to help you figure out how to cite in the text as well as the full citation in the Literature Cited section at the end of your paper.
 
-Use the code below to get more necessary information to cite R itself  
+Use the code below to get more necessary information to cite R itself
 
 ```{r cite R}
 
@@ -125,7 +204,6 @@ Use the code below to get more necessary information to cite R itself
 citation()
 
 ```
-
 
 Use the code below to cite the {tidyverse} package and then repeat the code replacing `tidyverse` with any other packages you need to cite
 
