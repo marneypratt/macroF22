@@ -1,12 +1,9 @@
 
 # make sure the 'tidyverse' package is installed and loaded to run the code below
 
-# macro and master.taxa data must both be imported before you can run the code below
+# macros and master.taxa data must both be imported before you can run the code below
   
-  macro.ffg <- macro %>% 
-    
-    #calculate density for each row
-    mutate(invDens = number/benthicArea) %>% 
+  macro.ffg <- macros %>% 
     
     #join taxonomic information 
     left_join(., master.taxa) %>% 
@@ -28,7 +25,7 @@
     filter(is.na(FFG) & ffgDens > 0)
   
   # select other variables you want present in your final dataset
-  variables <- macro %>% 
+  variables <- macros %>% 
     
     #add or remove any variables from the original dataset that you want present
     #make sure you keep sampleID because this is what is used to match the data

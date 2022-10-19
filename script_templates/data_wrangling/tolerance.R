@@ -1,9 +1,12 @@
 
 # make sure the 'tidyverse' package is installed and loaded to run the code below
 
-# macro data must be imported before you can run the code below
+# macros and master.taxa data must both be imported before you can run the code below
 
-macro.tol <- macro %>% 
+macro.tol <- macros %>% 
+  
+  #join taxonomic information 
+  left_join(., master.taxa) %>%
 
   # remove missing values
   dplyr::filter(!is.na(number), !is.na(tolerance)) %>% 

@@ -1,10 +1,13 @@
 
 # make sure the `vegan` and 'tidyverse' packages are installed and loaded to run the code below
 
-# macro data must both be imported before you can run the code below
+# macros and master.taxa data files must both be imported before you can run the code below
 
 # remove missing values, and make sure each taxon is summarized within sampleID
-macro.long <- macro %>%  
+macro.long <- macros %>%  
+  
+  #join taxa info
+  left_join(., master.taxa) %>%
   
   dplyr::filter(!is.na(number)) %>% 
   dplyr::select(sampleID, organism_aggr, number) %>% 
@@ -47,7 +50,7 @@ macro.div <- data.frame(H, effective.sp, rich, max.H, J) %>%
 
 
 # select other variables you want present in your final dataset
-variables <- macro %>% 
+variables <- macros %>% 
   
   #add or remove any variables from the original dataset that you want present
   #make sure you keep sampleID because this is what is used to match the data

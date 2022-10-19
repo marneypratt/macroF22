@@ -1,9 +1,9 @@
 # make sure the 'tidyverse' package is installed and loaded to run the code below
 
-# macro data must be imported before you can run the code below
+# macros and master.taxa data must both be imported before you can run the code below
 
 # select other variables you want present in your final dataset
-variables <- macro %>% 
+variables <- macros %>% 
   
   #add or remove any variables from the original dataset that you want present
   #make sure you keep sampleID because this is what is used to match the data
@@ -14,7 +14,10 @@ variables <- macro %>%
 #this code will calculate the substrate stability ratio (SSR)
 # SSR = (#scrapers + #collector filterers)/(#collector gatherers + shredders)
 
-macro.ssr <- macro %>% 
+macro.ssr <- macros %>% 
+  
+  #join taxonomic information 
+  left_join(., master.taxa) %>% 
   
   #calculate the number of each FFG in each sampleID
   group_by(sampleID, FFG) %>% 

@@ -1,12 +1,13 @@
 
 # make sure the 'tidyverse' package is installed and loaded to run the code below
 
-# macro and weather data must both be imported before you can run the code below
+# macros, master.taxa, and env data must all be imported before you can run the code below
   
-  macro.ffg <- macro %>% 
+  macro.ffg <- macros %>% 
     
-    #calculate density for each row
-    mutate(invDens = number/benthicArea) %>% 
+    #join taxonomic information 
+    left_join(., master.taxa) %>% 
+    
 
   # Sum each FFG density for each sampleID 
   group_by(sampleID, FFG) %>% 
@@ -16,7 +17,8 @@
   #adds back the zeros for FFGs that were not present in a sample
   #repeat all the grouping variables as above
   ungroup %>%
-    complete(sampleID, FFG, fill = list(ffgDens = 0)) 
+    complete(sampleID, FFG, 
+             fill = list(ffgDens = 0)) 
   
   
   #filter for the organisms without FFGs assigned
@@ -24,7 +26,7 @@
     filter(is.na(FFG) & ffgDens > 0)
   
   # select other variables you want present in your final dataset
-  variables <- macro %>% 
+  variables <- macros %>% 
     
     #add or remove any variables from the original dataset that you want present
     #make sure you keep sampleID because this is what is used to match the data 
@@ -41,7 +43,7 @@
     left_join(., variables) %>% 
     
     #add weather data
-    left_join(., weather)
+    left_join(., env)
   
   
   

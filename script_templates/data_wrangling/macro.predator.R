@@ -1,9 +1,9 @@
 # make sure the 'tidyverse' package is installed and loaded to run the code below
 
-# macro data must be imported before you can run the code below
+# macros, master.taxa, and env data must all be imported before you can run the code below
 
 # select the variables you want present in your final dataset
-variables <- macro %>% 
+variables <- macros %>% 
   
   #add or remove any variables from the original dataset that you want present
   #make sure you keep sampleID because this is what is used to match the data 
@@ -14,7 +14,10 @@ variables <- macro %>%
 #this code will calculate the predator ratio 
 # predator ratio = #predators /(#scrapers + #collector filterers + #collector gatherers + shredders)
 
-macro.prd <- macro %>% 
+macro.prd <- macros %>% 
+  
+  #join taxonomic information 
+  left_join(., master.taxa) %>% 
   
   #calculate the number of each FFG in each sampleID
   group_by(sampleID, FFG) %>% 

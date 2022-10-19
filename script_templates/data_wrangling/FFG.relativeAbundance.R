@@ -1,9 +1,13 @@
 
 # make sure the 'tidyverse' package is installed and loaded to run the code below
 
-# macro data must both be imported before you can run the code below
+# macros and master.taxa data must both be imported before you can run the code below
 
-macro.ffg <- macro %>% 
+macro.ffg <- macros %>% 
+  
+  #join taxonomic information 
+  left_join(., master.taxa) %>% 
+  
     
     # Sum FFG for each sampleID 
     group_by(sampleID, FFG) %>% 
@@ -15,7 +19,7 @@ macro.ffg <- macro %>%
   
   
   ###sum the total number of all organisms for each sample
-  macro.sample <- macro %>%  #replace blank with the same data frame name from above
+  macro.sample <- macros %>%  #replace blank with the same data frame name from above
     group_by(sampleID) %>% 
     dplyr::summarise (total.num = sum(number, na.rm = TRUE))
   
@@ -30,7 +34,7 @@ macro.ffg <- macro %>%
     filter(is.na(FFG) & relab > 0)
   
   # select other variables you want present in your final dataset
-  variables <- macro %>% 
+  variables <- macros %>% 
     
     #add or remove any variables from the original dataset that you want present
     #make sure you keep sampleID because this is what is used to match the data
