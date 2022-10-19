@@ -63,8 +63,9 @@ ft <- theme_vanilla(ft) %>%
 
 ft <- fix_border_issues(ft)
 
-#print table
-ft
+#to print table, remove the # in front of ft
+#comment out or delete the line below before you render a quarto document
+#ft
 
 #send to MS Word if desired
 #comment out or delete the line below before you render a quarto document

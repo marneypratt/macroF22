@@ -16,6 +16,7 @@ Keep all of your analysis in this same .qmd file and keep all the associated fil
 # Load packages
 
 ```{r setup}
+#| message: false
 
 library(tidyverse) ## for readr, dplyr, ggplot2
 library(vegan) ## for calculating diversity measures (you can remove this if you are not calculating diversity measures)
@@ -26,7 +27,7 @@ library(flextable) ## for making formatted tables that can be pasted into Word o
 
 # Import Data
 
-Figure out which data file(s) you need to import. Find the code you need in the "importing_data" folder within the "script_templates" folder. Copy and paste the code you need in the chunk below.
+Figure out which data file(s) you need to import. Find the code you need in the "importing_data" folder within the "script_templates" folder. Copy and paste the code you need into the chunk below.
 
 ```{r import data}
 
@@ -45,7 +46,7 @@ Find the code you need to prepare or "wrangle" your data to make any calculation
 
 # Data Description
 
-Make a formatted table of the data that you used in your analysis to include in the Data Analysis Methods section of your paper. Make sure to remove variables you don't need (if you are only looking at one season, you can remove season from this table)
+Make a formatted table of the data that you used in your analysis to include in the Data Analysis Methods section of your paper. Make sure to remove variables you don't need (for example, if you are only looking at one season, you can remove season from this table)
 
 ```{r table of data used}
 
@@ -113,8 +114,9 @@ ft <- theme_vanilla(ft) %>%
 
 ft <- fix_border_issues(ft)
 
-#print table
-ft
+#to print table, remove the # in front of ft
+#comment out or delete the line below before you render a quarto document
+#ft
 
 #send to MS Word if desired
 #comment out or delete the line below before you render a quarto document
