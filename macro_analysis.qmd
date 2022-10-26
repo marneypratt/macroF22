@@ -147,14 +147,6 @@ df.sum
 
 ```
 
-Make a formatted table of the data that you used in your analysis to include in the Data Analysis Methods section of your paper.
-
-```{r table of data used}
-
-
-
-```
-
 # Data Visualization
 
 Find the code you need to visualize (=graph) your data by looking in the "graphing" folder within the "script_templates" folder. Copy and paste the code you need in the chunk below.
