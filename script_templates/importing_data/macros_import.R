@@ -7,7 +7,7 @@
 
 # make sure the readr` package is loaded before importing these files
 
-macro <- read_csv("data/macro.csv",
+macros <- read_csv("data/macros.csv",
                  col_types = cols(date = col_date(format = "%Y-%m-%d"),
                   
                   location = col_factor(levels = c(
