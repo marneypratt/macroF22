@@ -199,7 +199,7 @@ ft
 
 ## Weather Table
 
-This is optional, but if you want to have a summary of what the weather was like in the month before sampling, then use the two code chunks below along with the template code from "sript_tempates" --> "data_description" --> "weather-table_season_year.R" 
+This is optional, but if you want to have a summary of what the weather was like in the month before sampling, then use the two code chunks below along with the template code from "script_templates" --> "data_description" --> "weather-table_season_year.R" 
 
 ```{r weather summary}
 
