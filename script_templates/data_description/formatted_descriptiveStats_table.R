@@ -8,6 +8,7 @@
 x.var <- "___" #put the name of the column you want to summarize in the blank here
 
 #calculate descriptive stats
+#remove the lines below that you don't need (you won't usually need ALL these values)
 df.sum <- ___ %>% #put the name of the data frame here
   group_by(___) %>% #put the grouping variable(s) here
   summarise(mean = round(mean(.data[[x.var]]), digits=2), #change the digits as needed

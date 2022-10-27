@@ -1,6 +1,6 @@
 ---
 title: "Macroinvertebrate Data Analysis"
-author: "Your Namge"
+author: "Your Name"
 date: "October  , 2022"
 format: pdf
 ---
@@ -42,6 +42,8 @@ Find the code you need to prepare or "wrangle" your data to make any calculation
 
 # Data Description
 
+## Summary Table of Sampling Effort
+
 Make a table of the data that you used in your analysis (how many samples and how much area was sampled in each of your groups) to include in the Data Analysis Methods section of your paper. Go to the "data_description" script templates and select the correct version of the 'sample_table_' script based on which factors you are using and paste that code below.
 
 ```{r sample table}
@@ -61,7 +63,7 @@ If you want code to make a formatted table for you, go to the "data_description"
 
 ```
 
-
+## Descriptive Statistics
 
 Use the template code below to calculate the descriptive statistics for your variable of interest. The output of this code should not all be reported in your paper. Decide which (if any) of the descriptive statistics you should report and make sure to round the values. Descriptive statistics can be reported in the text of the results (see this [example results section](https://docs.google.com/document/d/1vwyOSmhZzTuIfAEbpeiv3yCsU1UMZDsTXgnbE80nPTU/edit?usp=sharing)) if relatively simple, or you can make a formatted table of just the necessary, rounded values to include in your paper (in which case you might want to use "formatted_descriptiveStats_table.R" in the "data_description" script templates to help you make a formatted table).
 

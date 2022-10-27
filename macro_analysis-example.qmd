@@ -5,16 +5,12 @@ date: "October 12, 2022"
 format: pdf
 ---
 
-## Getting Setup
-
-Before getting started, it is a good practice to start with a clean slate by restarting your R session
-
-Go to the top menu, select Session then select Restart R
+# Getting Setup
 
 Keep all of your analysis in this same .qmd file and keep all the associated files in the project folder. Make sure the project name is showing in the upper right of the RStudio window.
 
 
-# Load packages
+## Load packages
 
 ```{r setup}
 #| message: false
@@ -26,7 +22,7 @@ library(flextable) ## for making formatted tables
 
 ```
 
-# Import Data
+## Import Data
 
 Figure out which data file(s) you need to import. Find the code you need in the "importing_data" folder within the "script_templates" folder. Copy and paste the code you need in the chunk below.
 
