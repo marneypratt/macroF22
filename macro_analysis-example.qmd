@@ -124,10 +124,11 @@ limpet.df <- left_join(limpet.density, env2)
 
 # Data Description
 
+## Summary Table of Sampling Effort
 
-Make a formatted table of the data that you used in your analysis to include in the Data Analysis Methods section of your paper.
+Make a table of the data that you used in your analysis (how many samples and how much area was sampled in each of your groups) to include in the Data Analysis Methods section of your paper. Go to the "data_description" script templates and select the correct version of the 'sample_table_' script based on which factors you are using and paste that code below.
 
-```{r table of data used}
+```{r sample table}
 
 table.sum <- limpet.df %>% 
   
@@ -135,30 +136,33 @@ table.sum <- limpet.df %>%
   group_by(date, season, location) %>% 
     summarize(
       area = sum(benthicArea),
-      mon.ADD = mean(mon.ADD, na.rm=TRUE),
-      mon.precip = mean(mon.precip, na.rm=TRUE),
       samples = n()
-    ) %>% 
-  
-  #change date to year-month-day
-  mutate(date = format(as.Date(date), '%Y-%m-%d')) %>% 
+      ) %>% 
 
 
-  #summarize by season, location 
+  #summarize by season, year, location 
   group_by(season, location) %>% 
     summarize(
       dates = str_c(date, collapse = ", "),
       samples = sum(samples),
-      area = sum(area)
-    )  
-  
+      area = sum(area),
+      )  
+
+table.sum
+
+```
+
+
+If you want code to make a formatted table for you, go to the "data_description" script templates and select the correct version of the 'formatted_sample_table_' script based on which factors you are using and paste that code below. Make sure that this code chunk is NOT run during rendering of this .qmd file (don't erase the #| include: false in the second line of the code chunk)
+
+```{r formatted sample table}
+#| include: false
 
 #create the formatted
 ft <- flextable(table.sum)
 
 #create header labels
 ft <- set_header_labels(ft,
-                        year = "Year",
                         season = "Season",
                         location = "Location",
                         dates = "Sampling Dates",
@@ -186,15 +190,18 @@ ft <- theme_vanilla(ft) %>%
 ft <- fix_border_issues(ft)
 
 #print table
-#ft
+ft
 
 #send to MS Word if desired
 #comment out or delete the line below before you knit an R Markdown document
-#print(ft, preview = "docx") # can change this to "html" or "pptx"
+print(ft, preview = "docx") # can change this to "html" or "pptx"
 
 #see https://davidgohel.github.io/flextable/ for more information and formatting options
 
+
 ```
+
+## Descriptive Statistics
 
 Use the template code below to calculate the descriptive statistics for your variable of interest. The output of this code should not all be reported in your paper. Decide which (if any) of the descriptive statistics you should report and make sure to round the values. Descriptive statistics can be reported in the text of the results (see this example results section) if relatively simple, or you can make a formatted table of just the necessary, rounded values to include in your paper (in which case you might want to use "formatted_descriptiveStats_table.R" in the "data_description" script templates to help you make a formatted table).
 
