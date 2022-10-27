@@ -1,5 +1,6 @@
 
 #To get a formatted table, make sure that the {flextable} package is loaded
+#Use additional code to create the summary table called "table.sum"
 #If you want to format the table yourself, then don't use this code
 
 
