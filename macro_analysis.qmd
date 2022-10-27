@@ -44,7 +44,7 @@ Find the code you need to prepare or "wrangle" your data to make any calculation
 
 ## Summary Table of Sampling Effort
 
-Make a table of the data that you used in your analysis (how many samples and how much area was sampled in each of your groups) to include in the Data Analysis Methods section of your paper. Go to the "data_description" script templates and select the correct version of the 'sample_table_' script based on which factors you are using and paste that code below.
+Make a table of the data that you used in your analysis (how many samples and how much area was sampled in each of your groups) to include in the Data Analysis Methods section of your paper. Go to the "data_description" script templates and select the correct version of the 'sample_table\_' script based on which factors you are using and paste that code below.
 
 ```{r sample table}
 
@@ -52,8 +52,7 @@ Make a table of the data that you used in your analysis (how many samples and ho
 
 ```
 
-
-If you want code to make a formatted table for you, go to the "data_description" script templates and select the correct version of the 'formatted_sample_table_' script based on which factors you are using and paste that code below. Make sure that this code chunk is NOT run during rendering of this .qmd file (don't erase the #| eval: false in the second line of the code chunk)
+If you want code to make a formatted table for you, go to the "data_description" script templates and select the correct version of the 'formatted_sample_table\_' script based on which factors you are using and paste that code below. Make sure that this code chunk is NOT run during rendering of this .qmd file (don't erase the #\| eval: false in the second line of the code chunk)
 
 ```{r formatted sample table}
 #| eval: false
