@@ -38,7 +38,7 @@ macro.ffg <- macros %>%
     
     #add or remove any variables from the original dataset that you want present
     #make sure you keep sampleID because this is what is used to match the data
-    select(sampleID, date, location, year, season) %>% 
+    select(sampleID, date, location, year, season, benthicArea) %>% 
     distinct()
   
   

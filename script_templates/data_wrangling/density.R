@@ -15,7 +15,7 @@ macro.density <- macros %>%
   # if you want a specific group of organisms, add that column name into 
   # the list of grouping variables (family, organism_aggr, FFG, etc)
   # then filter for the organism or group you want
-  group_by(date, sampleID, season, location, year) %>% 
+  group_by(date, sampleID, season, location, year, benthicArea) %>% 
   dplyr::summarise (density = sum(invDens, na.rm = TRUE)) 
 
 

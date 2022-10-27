@@ -30,9 +30,21 @@
     
     #add or remove any variables from the original dataset that you want present
     #make sure you keep sampleID because this is what is used to match the data 
-    select(sampleID, date, location, year, season) %>% 
-    distinct()
+    select(sampleID, date, location, year, season, benthicArea) %>% 
+    distinct() %>% 
   
+    #join the env data
+    left_join(., env) %>% 
+    
+    #add weather data and environmental variables of interest
+    # change group_by function to remove or add grouping variables as needed 
+    group_by(sampleID, date, location, year, season, benthicArea) %>% 
+    dplyr::summarise (
+      mon.ADD = round(mean(mon.ADD, na.rm=TRUE), digits=0),
+      mon.precip = round(mean(mon.precip, na.rm=TRUE), digits=0),
+      
+      # replace the blanks below with your water quality variable of interest
+      ___ = mean(___, na.rm = TRUE)) 
   
   #add back the organisms without FFGs assigned
   macro.ffg <- macro.ffg %>% 
@@ -40,10 +52,7 @@
     bind_rows(macro.ffg.na) %>% 
     
     #add variables of interest to final dataset
-    left_join(., variables) %>% 
-    
-    #add weather data
-    left_join(., env)
+    left_join(., variables) 
   
   
   

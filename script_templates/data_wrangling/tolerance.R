@@ -14,16 +14,9 @@ macro.tol <- macros %>%
   # multiply the tolerance value times the number present for each kind of organism in each sampleID
   # change group_by function to remove or add grouping variables as needed 
   # but you MUST keep organism_aggr and sampleID in the group_by statement
-  group_by(sampleID, organism_aggr, year, season, location) %>% 
+  group_by(sampleID, organism_aggr, year, season, location, benthicArea) %>% 
   dplyr::summarise(num = sum(number), 
                    tol = mean(tolerance)) %>% 
   mutate(x.t = num*tol)
 
-# calculate the HBI for each sampleID
-# change group_by function to remove or add grouping variables as needed 
-#but you must keep sampleID in the group_by statement
-macro.HBI <- macro.tol %>% 
-  group_by(year, season, location, sampleID) %>% 
-  dplyr::summarise(x.t.sum = sum(x.t),
-                   total.n = sum(num)) %>% 
-  mutate(HBI = x.t.sum/total.n)
+
