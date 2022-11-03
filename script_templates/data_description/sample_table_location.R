@@ -8,6 +8,8 @@ table.sum <- ___ %>%  #put the name of your wrangled data here
     samples = n()
   ) %>% 
 
+group_by(location) %>% 
+
   #summarize by location
   summarize(
     dates = str_c(date, collapse = ", "),
