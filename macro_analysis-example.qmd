@@ -329,7 +329,7 @@ limpet.df %>%
 
 ggplot(
   data = .,   #put the data frame name here
-  aes(x = location, y = log(density+1),                 #1st factor = x, continuous variable = y,
+  aes(x = location, y = (density+1),                 #1st factor = x, continuous variable = y,
       fill = location, color = location)) +       #2nd factor = fill & color
   geom_quasirandom( 
     shape=21, size=2, alpha = 0.5, width=0.2, #play with these values as needed
@@ -342,10 +342,12 @@ ggplot(
                color = "black",
                position=position_dodge(width=1), #match this width to dodge.width above
                show.legend = FALSE) + 
-  ylab(bquote("Log Density +1 (number/"~m^2*")")) +
+  ylab(bquote("Density + 1 (number/"~m^2*")")) +
   xlab("Location") +
   coord_cartesian(expand=TRUE) +
   theme_classic(base_size=16) +
+  scale_y_log10() +     #changes y-axis to log-scale
+  annotation_logticks(sides = "l") + # adds log-scale tick marks to the left axis 
   facet_wrap(vars(season))   #3rd factor here
 
 
@@ -354,7 +356,7 @@ ggplot(
 
 # save the graph!
 ggsave(filename="location.png",  #recommended to use.png or .jpg file types
-       height = 7, width = 8, units = "in", 
+       height = 5, width = 8, units = "in", 
        dpi = 300)
 
 ```
@@ -368,7 +370,7 @@ ggplot(
   aes(x = DO, y = density+1, color = location)) + 
   geom_point(size = 3) +                   #play with the point attributes as needed
   geom_smooth(method = "lm", se = FALSE) + #adds line of best fit
-  ylab(bquote("Log Density + 1 (number/"~m^2*")")) +
+  ylab(bquote("Density + 1 (number/"~m^2*")")) +
   xlab("Dissolved Oxygen (mg/L)") +
   labs(color = "Location") +
   theme_classic(base_size = 16) +
@@ -388,7 +390,7 @@ To save your graph with the `ggsave()` function, you need to name the resulting 
 
 # save the graph!
 ggsave(filename="DO.png",  #recommended to use.png or .jpg file types
-       height = 7, width = 8, units = "in", 
+       height = 4, width = 8, units = "in", 
        dpi = 300)
 
 ```
